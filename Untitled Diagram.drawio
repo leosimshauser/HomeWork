@@ -1,0 +1,19 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36" version="29.3.8">
+  <diagram name="Page-1" id="ZcyXiCbd3epHD8B5bp2-">
+    <mxGraphModel dx="946" dy="657" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="G7WcPmlzqGxsM9-RYmIV-1" parent="1" style="aspect=fixed;labelPosition=center;verticalLabelPosition=middle;align=center;verticalAlign=top;html=1;whiteSpace=wrap;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" value="Homework ordering system" vertex="1">
+          <mxGeometry height="420" width="420" x="200" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="G7WcPmlzqGxsM9-RYmIV-2" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="Student" vertex="1">
+          <mxGeometry height="60" width="30" x="130" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="G7WcPmlzqGxsM9-RYmIV-7" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="Teacher" vertex="1">
+          <mxGeometry height="60" width="30" x="650" y="140" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
