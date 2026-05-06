@@ -4,7 +4,7 @@
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="G7WcPmlzqGxsM9-RYmIV-1" parent="1" style="aspect=fixed;labelPosition=center;verticalLabelPosition=middle;align=center;verticalAlign=top;html=1;whiteSpace=wrap;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" value="Homework ordering system" vertex="1">
+        <mxCell id="G7WcPmlzqGxsM9-RYmIV-1" parent="1" style="aspect=fixed;labelPosition=center;verticalLabelPosition=middle;align=right;verticalAlign=top;html=1;whiteSpace=wrap;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" value="Homework ordering system" vertex="1">
           <mxGeometry height="610" width="610" x="100" y="100" as="geometry" />
         </mxCell>
         <mxCell id="jqSJIoKgP5xY_ZK5AzuU-10" edge="1" parent="1" source="G7WcPmlzqGxsM9-RYmIV-2" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;" target="jqSJIoKgP5xY_ZK5AzuU-4">
@@ -33,7 +33,7 @@
         <mxCell id="jqSJIoKgP5xY_ZK5AzuU-2" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Add due work" vertex="1">
           <mxGeometry height="70" width="110" x="400" y="140" as="geometry" />
         </mxCell>
-        <mxCell id="jqSJIoKgP5xY_ZK5AzuU-13" edge="1" parent="1" source="jqSJIoKgP5xY_ZK5AzuU-4" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=classic;endFill=1;" target="jqSJIoKgP5xY_ZK5AzuU-11">
+        <mxCell id="jqSJIoKgP5xY_ZK5AzuU-13" edge="1" parent="1" source="jqSJIoKgP5xY_ZK5AzuU-4" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=classic;endFill=1;entryX=0;entryY=0;entryDx=0;entryDy=0;" target="jqSJIoKgP5xY_ZK5AzuU-11">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="jqSJIoKgP5xY_ZK5AzuU-14" connectable="0" parent="jqSJIoKgP5xY_ZK5AzuU-13" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Include" vertex="1">
@@ -53,15 +53,15 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="jqSJIoKgP5xY_ZK5AzuU-11" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Calculate importance value" vertex="1">
-          <mxGeometry height="70" width="110" x="400" y="310" as="geometry" />
+          <mxGeometry height="70" width="110" x="390" y="260" as="geometry" />
         </mxCell>
         <mxCell id="tDrKYoykQaESbITqznwy-10" edge="1" parent="1" source="jqSJIoKgP5xY_ZK5AzuU-15" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=none;startFill=0;endArrow=classic;endFill=1;dashed=1;" target="tDrKYoykQaESbITqznwy-9" value="Include">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="jqSJIoKgP5xY_ZK5AzuU-15" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Recalculate order of tasks&amp;nbsp;" vertex="1">
-          <mxGeometry height="70" width="110" x="400" y="490" as="geometry" />
+          <mxGeometry height="70" width="110" x="390" y="560" as="geometry" />
         </mxCell>
-        <mxCell id="jqSJIoKgP5xY_ZK5AzuU-20" edge="1" parent="1" source="jqSJIoKgP5xY_ZK5AzuU-18" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;" target="jqSJIoKgP5xY_ZK5AzuU-11">
+        <mxCell id="jqSJIoKgP5xY_ZK5AzuU-20" edge="1" parent="1" source="jqSJIoKgP5xY_ZK5AzuU-18" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=1;entryDx=0;entryDy=0;dashed=1;" target="jqSJIoKgP5xY_ZK5AzuU-11">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="jqSJIoKgP5xY_ZK5AzuU-21" connectable="0" parent="jqSJIoKgP5xY_ZK5AzuU-20" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Include" vertex="1">
