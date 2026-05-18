@@ -2,24 +2,28 @@ const cheerio = require('cheerio');
 
 
 
-(async () => {
+async function Scrape() {
     const url = 'https://learning.stmichaels.vic.edu.au/timetable';
     const response = await fetch(url);
-
-    const $ = cheerio.load(await response.text());
-    // console.log($.html());
-
-    // const title = $('h1').text();
-    // const text = $('p').text();
-    const link = $('a').attr('href');
-    const element = $('.data-timetable-subject').text()
-
-    const text = element.textContent; 
+    const html = await response.text();
+    console.log(html)
 
 
+    const $ = cheerio.load(html);
+ 
+    // const text = $('.timetable-subject').text().trim();
 
-    // console.log(title);
+    $('.timetable-subject a').each((i, el) => {
+    console.log($(el).text().trim());
+});
+
     // console.log(text);
-    console.log(element);
 
-})();
+
+
+};
+Scrape();
+// https://www.example.com
+
+// https://learning.stmichaels.vic.edu.au/timetable
+
