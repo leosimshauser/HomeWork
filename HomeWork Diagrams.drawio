@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36" pages="3">
   <diagram name="Use Case Diagram" id="ZcyXiCbd3epHD8B5bp2-">
-    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1099" dy="773" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -55,7 +55,7 @@
         <mxCell id="jqSJIoKgP5xY_ZK5AzuU-11" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Calculate importance value" vertex="1">
           <mxGeometry height="70" width="115" x="385" y="280" as="geometry" />
         </mxCell>
-        <mxCell id="tDrKYoykQaESbITqznwy-10" edge="1" parent="1" source="jqSJIoKgP5xY_ZK5AzuU-15" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=none;startFill=0;endArrow=classic;endFill=1;dashed=1;" target="tDrKYoykQaESbITqznwy-9" value="Include">
+        <mxCell id="tDrKYoykQaESbITqznwy-10" edge="1" parent="1" source="jqSJIoKgP5xY_ZK5AzuU-15" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=none;startFill=0;endArrow=classic;endFill=1;dashed=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="tDrKYoykQaESbITqznwy-9" value="Include">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="jqSJIoKgP5xY_ZK5AzuU-15" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Calculate/recalculate order of tasks&amp;nbsp;" vertex="1">
@@ -96,7 +96,7 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="gFCc6fkzavYNVZ7rkNDt-6" edge="1" parent="1" source="tDrKYoykQaESbITqznwy-9" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;endArrow=classic;endFill=1;dashed=1;" target="gFCc6fkzavYNVZ7rkNDt-5">
+        <mxCell id="gFCc6fkzavYNVZ7rkNDt-6" edge="1" parent="1" source="gFCc6fkzavYNVZ7rkNDt-1" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=classic;endFill=1;dashed=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="gFCc6fkzavYNVZ7rkNDt-5">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="gFCc6fkzavYNVZ7rkNDt-7" connectable="0" parent="gFCc6fkzavYNVZ7rkNDt-6" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Include" vertex="1">
@@ -142,7 +142,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="8lql2eI7iz3RtWvieJSU" name="Context Diagram">
-    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="934" dy="657" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -165,7 +165,7 @@
         <mxCell id="m4LZdS4MCfvcE9fhJnzB-1" edge="1" parent="1" source="ACZuuOuZ4gBjVFFcBLFl-1" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=1;entryDx=0;entryDy=0;" target="ACZuuOuZ4gBjVFFcBLFl-3">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="m4LZdS4MCfvcE9fhJnzB-2" connectable="0" parent="m4LZdS4MCfvcE9fhJnzB-1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Edit task details" vertex="1">
+        <mxCell id="m4LZdS4MCfvcE9fhJnzB-2" connectable="0" parent="m4LZdS4MCfvcE9fhJnzB-1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Task details" vertex="1">
           <mxGeometry relative="1" x="-0.015" y="4" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
@@ -230,7 +230,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="qZvDCd3xGAPA9ddogVVE-4" connectable="0" parent="qZvDCd3xGAPA9ddogVVE-3" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Text data" vertex="1">
+        <mxCell id="qZvDCd3xGAPA9ddogVVE-4" connectable="0" parent="qZvDCd3xGAPA9ddogVVE-3" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="HTML code" vertex="1">
           <mxGeometry relative="1" x="0.1782" y="-11" as="geometry">
             <mxPoint x="-31" y="14" as="offset" />
           </mxGeometry>
@@ -328,6 +328,14 @@
             <mxPoint x="-20" y="-13" as="offset" />
           </mxGeometry>
         </mxCell>
+        <mxCell id="md9hbyHeWfBQX6UZH_xF-1" edge="1" parent="1" source="AD2-MKlbYGot8EyMhpUs-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=1;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" target="qZvDCd3xGAPA9ddogVVE-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="md9hbyHeWfBQX6UZH_xF-2" connectable="0" parent="md9hbyHeWfBQX6UZH_xF-1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Subject names" vertex="1">
+          <mxGeometry relative="1" x="-0.1257" y="37" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
         <mxCell id="AD2-MKlbYGot8EyMhpUs-5" parent="1" style="shape=partialRectangle;whiteSpace=wrap;html=1;left=0;right=0;fillColor=none;dashed=1;" value="All subjects database" vertex="1">
           <mxGeometry height="60" width="120" x="590" y="80" as="geometry" />
         </mxCell>
@@ -400,7 +408,7 @@
         <mxCell id="AD2-MKlbYGot8EyMhpUs-23" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" value="5. Calculate order of importance of tasks" vertex="1">
           <mxGeometry height="110" width="110" x="400" y="510" as="geometry" />
         </mxCell>
-        <mxCell id="BMlkTxle_BU_fT23YYWB-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="SchoL timetable" vertex="1">
+        <mxCell id="BMlkTxle_BU_fT23YYWB-1" parent="1" style="shape=partialRectangle;whiteSpace=wrap;html=1;left=0;right=0;fillColor=none;dashed=1;" value="SchoL timetable" vertex="1">
           <mxGeometry height="60" width="120" x="-100" y="100" as="geometry" />
         </mxCell>
         <mxCell id="-2ZZ6kYNN2esiHcJ8uK2-7" edge="1" parent="1" source="-2ZZ6kYNN2esiHcJ8uK2-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.25;entryY=1;entryDx=0;entryDy=0;curved=1;" target="qZvDCd3xGAPA9ddogVVE-1">
@@ -426,7 +434,7 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="-2ZZ6kYNN2esiHcJ8uK2-9" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;direction=south;" value="9. Delete task instance" vertex="1">
+        <mxCell id="-2ZZ6kYNN2esiHcJ8uK2-9" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;direction=south;" value="8&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;. Delete task instance&lt;/span&gt;" vertex="1">
           <mxGeometry height="110" width="110" x="210" y="220" as="geometry" />
         </mxCell>
         <mxCell id="-2ZZ6kYNN2esiHcJ8uK2-14" edge="1" parent="1" source="-2ZZ6kYNN2esiHcJ8uK2-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0;entryDx=0;entryDy=0;curved=1;" target="AD2-MKlbYGot8EyMhpUs-20">
@@ -441,7 +449,7 @@
             <mxPoint x="16" y="-18" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="-2ZZ6kYNN2esiHcJ8uK2-12" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;direction=south;" value="8. Set/change weighting of task value/s" vertex="1">
+        <mxCell id="-2ZZ6kYNN2esiHcJ8uK2-12" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;direction=south;" value="7. Set/change weighting of task value/s" vertex="1">
           <mxGeometry height="110" width="110" x="340" y="310" as="geometry" />
         </mxCell>
       </root>
