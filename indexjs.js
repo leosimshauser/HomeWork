@@ -1,5 +1,6 @@
-class Subject{
-            constructor(task)  {
-                this.task = task;
-            }
+
+    class Subject{
+        constructor(task)  {
+            this.task = task;
         }
+    }
