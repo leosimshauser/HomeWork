@@ -31,13 +31,14 @@ body {
 }
         
     </style>
+    Content-Security-Policy: script-src 'self' 'nonce-abc123'
 
-    <script>
+    <script nonce="abc123">
         class Subject{
             constructor(task)  {
                 this.task = task;
             }
         }
-        
     </script>
+
 </html>
