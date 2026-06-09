@@ -296,12 +296,12 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="AD2-MKlbYGot8EyMhpUs-10" connectable="0" parent="AD2-MKlbYGot8EyMhpUs-6" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Subject names" vertex="1">
+        <mxCell id="AD2-MKlbYGot8EyMhpUs-10" connectable="0" parent="AD2-MKlbYGot8EyMhpUs-6" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Subject details" vertex="1">
           <mxGeometry relative="1" x="0.0229" y="-1" as="geometry">
             <mxPoint x="-41" y="24" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="qZvDCd3xGAPA9ddogVVE-2" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" value="1. Scrape subject names" vertex="1">
+        <mxCell id="qZvDCd3xGAPA9ddogVVE-2" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" value="1. Scrape subject names, teacher, colours" vertex="1">
           <mxGeometry height="110" width="110" x="320" y="-110" as="geometry" />
         </mxCell>
         <mxCell id="AD2-MKlbYGot8EyMhpUs-12" edge="1" parent="1" source="qZvDCd3xGAPA9ddogVVE-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;curved=1;" target="AD2-MKlbYGot8EyMhpUs-11">
@@ -323,7 +323,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="-2ZZ6kYNN2esiHcJ8uK2-4" connectable="0" parent="-2ZZ6kYNN2esiHcJ8uK2-3" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Subject names" vertex="1">
+        <mxCell id="-2ZZ6kYNN2esiHcJ8uK2-4" connectable="0" parent="-2ZZ6kYNN2esiHcJ8uK2-3" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Subject details" vertex="1">
           <mxGeometry relative="1" x="-0.0455" y="-10" as="geometry">
             <mxPoint x="-20" y="-13" as="offset" />
           </mxGeometry>
@@ -449,7 +449,7 @@
             <mxPoint x="16" y="-18" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="-2ZZ6kYNN2esiHcJ8uK2-12" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;direction=south;" value="7. Set/change weighting of task value/s" vertex="1">
+        <mxCell id="-2ZZ6kYNN2esiHcJ8uK2-12" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;direction=south;" value="7. Change weighting of task value/s" vertex="1">
           <mxGeometry height="110" width="110" x="340" y="310" as="geometry" />
         </mxCell>
       </root>
