@@ -28,30 +28,53 @@ class Subject{
     }
     }
 class Task{
-    constructor(subject,taskName,hours,dueDate,diff,taskWeight,comp,varWeights,importance){
+    constructor(subject,taskName,hours,daysDue,diff,taskWeight,comp,varWeights,importance){
         subject = this.subject
         taskName = this.taskName
         hours = this.hours
-        dueDate = this.dueDate
+        daysDue = this.daysDue
         diff = this.diff
         taskWeight = this.taskWeight
         comp = this.comp
-        varWeights = this.varWeights
         importance = this.importance
         }
     set taskDets(taskArray){
+        // More validation later
+        const today = new Date()
         this.taskName = taskArray[0];
         this.hours = taskArray[1];
-        this.dueDate = taskArray[2];
+        dueDate = taskArray[2];
+        this.daysDue = dueDate - today()
         if (taskArray[3] != ""){
             this.diff = taskArray[3];
+        }
+        else{
+            this.diff = 2.5
         }
         if (taskArray[4] != ""){
             this.taskWeight = taskArray[4];
         }
+        else{
+            this.taskWeight= 0
+        }
         if (taskArray[5] != ""){
             this.comp = taskArray[5];
         }
+        else{
+            this.comp = 0
+        }
     }
-    
+    set weightedVars(varWeights){
+        this.hours = this.hours*varWeights[0];
+        this.daysDue = this.daysDue/varWeights[1];
+        this.diff = (diff*(varWeights[2]))/5 + (1-varWeights[2])/2 + 0.5
+        this.taskWeight = this.taskWeight*varWeights[3]
+        this.comp = this.comp*varWeights[4]
+    }
+    setImportance() {
+        this.importance = (this.hours/(this.daysDue))*(this.comp)*(this.taskWeight)*(this.diff)
+    }
+    get importance(){
+        return this.importance
+    }
     }
