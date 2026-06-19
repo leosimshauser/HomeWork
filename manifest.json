@@ -11,8 +11,8 @@
       "32": "images/icon-32.png",
       "48": "images/icon-48.png",
       "128": "images/icon-128.png"
-    }
-    
+    },
+    "default_popup": "index.html"
   },
   "content_security_policy": {
     "extension_pages": 
@@ -21,7 +21,8 @@
     
 
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "background.js",
+    "type": "module"
   },
   "permissions": ["activeTab", "scripting"],
   "commands": {
