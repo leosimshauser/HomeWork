@@ -20,6 +20,9 @@ const stored =
 
     document.getElementById("subjectBtn")
         .addEventListener("click", getSubjects);
+
+    document.getElementById("showSubjectsBtn")
+        .addEventListener("click", showSubjects);
 });
 
 async function getSubjects() {
@@ -103,4 +106,28 @@ function scrapeSubjects() {
     });
 
     return subjects;
+}
+
+
+async function showSubjects() {
+
+    const [tab] = await chrome.tabs.query({
+        active: true,
+        currentWindow: true
+    });
+
+    console.log("URL:", tab.url);
+
+    try {
+        const results =
+            await chrome.scripting.executeScript({
+                target: { tabId: tab.id },
+                files: ["content.js"]
+            });
+
+        console.log("Injection successful:", results);
+
+    } catch (err) {
+        console.error("Injection failed:", err);
+    }
 }
