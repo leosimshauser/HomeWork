@@ -1,39 +1,106 @@
-document.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("subjectBtn").addEventListener("click", async () => {
-    const [tab] = await chrome.tabs.query({
-      active: true,
-      currentWindow: true
-    });
+document.addEventListener("DOMContentLoaded", async () => {
 
-    chrome.scripting.executeScript({
-      target: { tabId: tab.id },
-      function: downloadText
-    });
-  });
+    // Load existing subjects when popup opens
+const stored =
+    (await chrome.storage.local.get("subjects")).subjects;
+
+    const subjectObjects =
+        Array.isArray(stored)
+            ? stored.map(
+                s => new Subject(
+                    s.subjectName,
+                    s.teacher,
+                    s.colour
+                )
+            )
+            : [];
+
+    console.log("Stored subjects:", stored);
+    console.log("Subject objects:", subjectObjects);
+
+    document.getElementById("subjectBtn")
+        .addEventListener("click", getSubjects);
 });
 
-function downloadText() {
-  const initialText = [...new Set(
-    Array.from(
-      document.querySelectorAll(".timetable-subject a")
-    ).map(el => el.innerText.trim())
-  )];
+async function getSubjects() {
 
-  const text = initialText
-    .filter(item => !item.includes("HOUSE"))
-    .filter(item => !item.includes("SPORT"))
-    .concat("MISCELLANEOUS")
-    .join("\n");
+    const [tab] = await chrome.tabs.query({
+        active: true,
+        currentWindow: true
+    });
 
-  const blob = new Blob([text], { type: "text/plain" });
+    const results = await chrome.scripting.executeScript({
+        target: { tabId: tab.id },
+        function: scrapeSubjects
+    });
 
-  const link = document.createElement("a");
-  link.href = URL.createObjectURL(blob);
-  link.download = "subject-information-do-not-edit.txt";
+    console.log("Injection results:", results);
 
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
+    const result = results[0].result;
 
-  URL.revokeObjectURL(link.href);
+    console.log("Scraped data:", result);
+
+    await chrome.storage.local.set({
+        subjects: result
+    });
+
+    console.log("Saved subjects:", result);
+}
+
+function scrapeSubjects() {
+
+    const seen = new Set();
+    const subjects = [];
+
+    document.querySelectorAll(".timetable-subject").forEach(el => {
+
+        const link = el.querySelector("a");
+
+        if (!link) return;
+
+        const subjectName = link.innerText.trim();
+
+        if (
+            subjectName.includes("HOUSE") ||
+            subjectName.includes("SPORT")
+        ) {
+            return;
+        }
+
+        if (seen.has(subjectName)) {
+            return;
+        }
+
+        seen.add(subjectName);
+
+        const colour =
+            getComputedStyle(el).backgroundColor;
+
+        const lines =
+            el.querySelector("div")
+            ?.innerText
+            .split("\n")
+            .filter(line => line.trim() !== "") || [];
+
+        const teacherLine = lines[1] || "";
+
+        const teacher =
+            teacherLine.replace(/^\S+\s+/, "");
+
+        subjects.push({
+            subjectName,
+            teacher,
+            colour,
+            tasks: []
+        });
+    });
+
+    subjects.push({
+        subjectName: "MISCELLANEOUS",
+        teacher: "",
+        colour: "rgb(200,200,200)",
+        tasks: []
+    });
+
+    return subjects;
 }

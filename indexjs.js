@@ -1,9 +1,9 @@
 
 // class Subject{
 //     constructor(subjectName,teacher,colour)  {
-//         this.subjectName = subjectName;
-//         this.teacher = teacher;
-//         this.colour = colour;
+//         this.__subjectName = subjectName;
+//         this.__teacher = teacher;
+//         this.__colour = colour;
 //     }
 //     set subjectDets(subjectArray){
 //         // Validation for "if newSubjectName.includes(house) or newSubjectName.includes(study) = False"
@@ -18,33 +18,35 @@
 //         this.colour = subjectArray[2];
 //     }
 //     get subjectName(){
-//         return this.subjectName
+//         return this.__subjectName
 //     }
 //     get teacher(){
-//         return this.teacher
+//         return this.__teacher
 //     }
 //     get colour(){
-//         return this.colour
+//         return this.__colour
 //     }
 //     }
 // class Task{
 //     constructor(subject,taskName,hours,daysDue,diff,taskWeight,comp,varWeights,importance){
-//         subject = this.subject
-//         taskName = this.taskName
-//         hours = this.hours
-//         daysDue = this.daysDue
-//         diff = this.diff
-//         taskWeight = this.taskWeight
-//         comp = this.comp
-//         importance = this.importance
+//         this.subject = subject;
+//         this.taskName = taskName;
+//         this.hours = hours;
+//         this.daysDue = daysDue;
+//         this.diff = diff;
+//         this.taskWeight = taskWeight;
+//         this.comp = comp;
+//         this.importance = importance;
 //         }
 //     set taskDets(taskArray){
 //         // More validation later
-//         const today = new Date()
 //         this.taskName = taskArray[0];
 //         this.hours = taskArray[1];
-//         dueDate = taskArray[2];
-//         this.daysDue = dueDate - today()
+//         const dueDate = new Date(taskArray[2]);
+//         const today = new Date();
+//         this.daysDue =
+//             (dueDate - today) / (1000 * 60 * 60 * 24);
+        
 //         if (taskArray[3] != ""){
 //             this.diff = taskArray[3];
 //         }
