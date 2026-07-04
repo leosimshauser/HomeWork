@@ -32,22 +32,24 @@ async function getSubjects() {
         currentWindow: true
     });
 
-    const results = await chrome.scripting.executeScript({
-        target: { tabId: tab.id },
-        function: scrapeSubjects
-    });
+    const url = new URL(tab.url);
 
-    console.log("Injection results:", results);
+    if (url.pathname !== "/timetable") {
+        alert("Please open the SchoL timetable page first.");
+        return;
+    }
+
+    const results =
+        await chrome.scripting.executeScript({
+            target: { tabId: tab.id },
+            function: scrapeSubjects
+        });
 
     const result = results[0].result;
-
-    console.log("Scraped data:", result);
 
     await chrome.storage.local.set({
         subjects: result
     });
-
-    console.log("Saved subjects:", result);
 }
 
 function scrapeSubjects() {
@@ -108,7 +110,6 @@ function scrapeSubjects() {
     return subjects;
 }
 
-
 async function showSubjects() {
 
     const [tab] = await chrome.tabs.query({
@@ -116,18 +117,32 @@ async function showSubjects() {
         currentWindow: true
     });
 
+    const url = new URL(tab.url);
+
+    if (url.pathname !== "/calendar/week") {
+        alert("Please open the SchoL eDiary page first.");
+        return;
+    }
+
     console.log("URL:", tab.url);
 
     try {
+
         const results =
             await chrome.scripting.executeScript({
                 target: { tabId: tab.id },
-                files: ["content.js"]
+                files: [
+                    "classes.js",
+                    "weighting.js",
+                    "content.js"
+                ]
             });
 
         console.log("Injection successful:", results);
 
     } catch (err) {
+
         console.error("Injection failed:", err);
+
     }
 }

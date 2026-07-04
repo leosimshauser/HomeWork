@@ -1,63 +1,63 @@
-class Subject {
-    constructor(subjectName, teacher, colour) {
-        this.subjectName = subjectName;
-        this.teacher = teacher;
-        this.colour = colour;
-        this.tasks = [];
+if (typeof Subject === "undefined") {
+
+    class Subject {
+        constructor(subjectName, teacher, colour) {
+            this.subjectName = subjectName;
+            this.teacher = teacher;
+            this.colour = colour;
+            this.tasks = [];
+        }
+
+        addTask(task) {
+            this.tasks.push(task);
+        }
     }
 
-    addTask(task) {
-        this.tasks.push(task);
-    }
+    window.Subject = Subject;
 }
 
-class Task {
-    constructor(
-        subject,
-        taskName,
-        hours,
-        dueDate,
-        diff = 2.5,
-        taskWeight = 0,
-        comp = 0
-    ) {
-        this.subject = subject;
-        this.taskName = taskName;
-        this.hours = hours;
-        this.dueDate = dueDate;
-        this.diff = diff;
-        this.taskWeight = taskWeight;
-        this.comp = comp;
-        this.importance = 0;
+if (typeof Task === "undefined") {
+
+    class Task {
+        constructor(
+            taskName,
+            hours,
+            dueDate,
+            weighting = 0,
+            comp = 0,
+            diff = 2.5
+        ) {
+            this.taskName = taskName;
+            this.hours = Number(hours);
+            this.dueDate = dueDate;
+            this.weighting = Number(weighting);
+            this.comp = Number(comp);
+            this.diff = Number(diff);
+            this.importance = 0;
+        }
+
+        calculateDaysDue() {
+            const today = new Date();
+            const due = new Date(this.dueDate);
+
+            return (
+                due - today
+            ) / (1000 * 60 * 60 * 24);
+        }
+
+        calculateImportance() {
+            const daysDue =
+                this.calculateDaysDue();
+
+            this.importance =
+                (this.hours / daysDue) *
+                this.comp *
+                this.weighting *
+                this.diff;
+
+            return this.importance;
+        }
     }
 
-    calculateDaysDue() {
-        const today = new Date();
-        const due = new Date(this.dueDate);
-
-        return (due - today) / (1000 * 60 * 60 * 24);
-    }
-
-    calculateImportance() {
-        const daysDue = this.calculateDaysDue();
-
-        this.importance =
-            (this.hours / daysDue) *
-            this.comp *
-            this.taskWeight *
-            this.diff;
-
-        return this.importance;
-    }
-
-    applyWeights(weights) {
-        this.hours *= weights[0];
-        this.diff =
-            (this.diff * weights[2]) / 5 +
-            (1 - weights[2]) / 2 +
-            0.5;
-
-        this.taskWeight *= weights[3];
-        this.comp *= weights[4];
-    }
+    window.Task = Task;
 }
