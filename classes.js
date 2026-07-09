@@ -1,3 +1,5 @@
+console.log("classes.js loaded");
+
 if (typeof Subject === "undefined") {
 
     class Subject {

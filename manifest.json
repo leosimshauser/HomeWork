@@ -39,8 +39,8 @@
   
   "content_scripts": [
     {
-      "matches": ["https://learning.stmichaels.vic.edu.au/calendar/week#"],
-      "js": ["weighting.js","content.js"]
+      "matches": ["https://learning.stmichaels.vic.edu.au/calendar/week*"],
+      "js": ["classes.js","weighting.js","taskPopup.js","content.js"]
     }
   ]
 

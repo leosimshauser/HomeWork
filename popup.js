@@ -117,32 +117,34 @@ async function showSubjects() {
         currentWindow: true
     });
 
-    const url = new URL(tab.url);
-
-    if (url.pathname !== "/calendar/week") {
-        alert("Please open the SchoL eDiary page first.");
-        return;
-    }
-
-    console.log("URL:", tab.url);
-
     try {
 
-        const results =
+        await chrome.tabs.sendMessage(tab.id, {
+            action: "showHomework"
+        });
+
+    } catch (err) {
+
+        if (err.message.includes("Receiving end does not exist")) {
+
+            console.log("Content script missing. Injecting...");
+
             await chrome.scripting.executeScript({
                 target: { tabId: tab.id },
                 files: [
                     "classes.js",
                     "weighting.js",
+                    "taskPopup.js",
                     "content.js"
                 ]
             });
 
-        console.log("Injection successful:", results);
+            await chrome.tabs.sendMessage(tab.id, {
+                action: "showHomework"
+            });
 
-    } catch (err) {
-
-        console.error("Injection failed:", err);
-
+        } else {
+            console.error(err);
+        }
     }
 }

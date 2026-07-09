@@ -1,4 +1,6 @@
-const DEFAULT_WEIGHTS = {
+console.log("weighting.js loaded");
+
+window.DEFAULT_WEIGHTS = {
     days: 1,
     hours: 1,
     diff: 1,
@@ -12,7 +14,7 @@ async function buildWeightingSection() {
         await chrome.storage.local.get("weights");
 
     const weights =
-        data.weights || DEFAULT_WEIGHTS;
+        data.weights || window.DEFAULT_WEIGHTS;
 
     const section =
         document.createElement("div");
@@ -113,12 +115,16 @@ function createSlider(title, id, currentWeight) {
         <label>${title}</label>
 
         <input
+            class="c-input-range__input"
             id="${id}-slider"
             type="range"
             min="0"
             max="4"
             step="1"
-            value="${weightToSlider(currentWeight)}">
+            value="${weightToSlider(currentWeight)}"
+            style="
+            width:100%;
+            ">
 
         <div>
             <span>Very Low</span>
@@ -163,19 +169,19 @@ async function saveWeights() {
 function resetWeights() {
 
     document.getElementById("days-slider").value =
-        weightToSlider(DEFAULT_WEIGHTS.days);
+        weightToSlider(window.DEFAULT_WEIGHTS.days);
 
     document.getElementById("hours-slider").value =
-        weightToSlider(DEFAULT_WEIGHTS.hours);
+        weightToSlider(window.DEFAULT_WEIGHTS.hours);
 
     document.getElementById("diff-slider").value =
-        weightToSlider(DEFAULT_WEIGHTS.diff);
+        weightToSlider(window.DEFAULT_WEIGHTS.diff);
 
     document.getElementById("weight-slider").value =
-        weightToSlider(DEFAULT_WEIGHTS.weight);
+        weightToSlider(window.DEFAULT_WEIGHTS.weight);
 
     document.getElementById("comp-slider").value =
-        weightToSlider(DEFAULT_WEIGHTS.comp);
+        weightToSlider(window.DEFAULT_WEIGHTS.comp);
 
     saveWeights();
 
