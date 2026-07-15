@@ -161,6 +161,7 @@ async function saveWeights() {
     document.dispatchEvent(
         new Event("weightsChanged")
     );
+
 }
 
 
@@ -195,19 +196,19 @@ function sliderToWeight(position) {
     switch (position) {
 
         case 0:
-            return 0.5;
+            return 0.25;
 
         case 1:
-            return 0.75;
+            return 0.5;
 
         case 2:
             return 1;
 
         case 3:
-            return 1.25;
+            return 1.5;
 
         case 4:
-            return 1.5;
+            return 1.75;
 
         default:
             return 1;
@@ -221,19 +222,19 @@ function weightToSlider(weight) {
 
     switch (weight) {
 
-        case 0.5:
+        case 0.25:
             return 0;
 
-        case 0.75:
+        case 0.5:
             return 1;
 
         case 1:
             return 2;
 
-        case 1.25:
+        case 1.5:
             return 3;
 
-        case 1.5:
+        case 1.75:
             return 4;
 
         default:

@@ -97,7 +97,7 @@ function openTaskPopup(
             type="number"
             value="${existingTask?.diff || 2.5}"
             style="width:100%">
-        
+        <br>
         <b id = "taskError"></b><br>
         <button id="saveTask">
             Save
@@ -172,98 +172,21 @@ function openTaskPopup(
 
                 return;
             }
-
-            const task = {
-
-                taskName:
-                    document.getElementById(
-                        "taskName"
-                    ).value,
-
-                hours:
-                    Number(
-                        document.getElementById(
-                            "hours"
-                        ).value
-                    ),
-
-                dueDate:
-                    document.getElementById(
-                        "dueDate"
-                    ).value,
-
-                weighting:
-                    Number(
-                        document.getElementById(
-                            "weighting"
-                        ).value
-                    ),
-
-                comp:
-                    Number(
-                        document.getElementById(
-                            "comp"
-                        ).value
-                    ),
-
-                diff:
-                    Number(
-                        document.getElementById(
-                            "diff"
-                        ).value
-                    )
-            };
             const {
                 weights = window.DEFAULT_WEIGHTS
             } = await chrome.storage.local.get("weights");
 
-            const taskHours =
-                (Number(task.hours))*weights.hours;
+            const task = new Task(
+                taskName,
+                hours,
+                dueDate,
+                weighting,
+                comp,
+                diff
+            );
 
-            const taskWeight =
-                (1 + Number(task.weighting) / 5)*weights.weight;
-
-            const taskComp =
-                (1 - Number(task.comp) / 100)*weights.comp;
-
-            const due =
-                new Date(task.dueDate);
-
-            const today =
-                new Date();
-
-            const days =
-                (Math.max(
-                    1,
-                    (due - today) /
-                    (1000 * 60 * 60 * 24)
-                ))*weights.days;
-
-            let taskDiff = 2.5;
-
-            if (
-                task.diff === "" ||
-                task.diff === null ||
-                isNaN(task.diff)
-            ) {
-                taskDiff = 2.5;
-            }
-            else {
-                taskDiff =
-                    (Number(task.diff))*weights.diff / 5 + (1-weights.diff)/5 + 0.5;
-            }
-            
-
-            task.importance =
-                (
-                    taskHours /
-                    days
-                ) *
-                taskWeight *
-                taskComp *
-                taskDiff;
-            
-            console.log(task.importance);
+            task.calculateImportance(weights);
+            task.calculateAveHours();
 
             const data =
                 await chrome.storage.local.get(

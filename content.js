@@ -1,4 +1,4 @@
-console.log("content.js loaded");
+console.log("content.js loaded v2");
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
@@ -21,97 +21,50 @@ async function buildHomeworkUI() {
         await chrome.storage.local.get(
             "subjects"
         );
-    subjects.forEach(subject => {
 
-        (subject.tasks || []).forEach(task => {
-            const taskHours =
-                Number(task.hours);
+    const {
+        weights = window.DEFAULT_WEIGHTS
+    } = await chrome.storage.local.get("weights");
 
-            const taskWeight =
-                1 + Number(task.weighting) / 5;
-
-            const taskComp =
-                1 - Number(task.comp) / 100;
-
-            const due =
-                new Date(task.dueDate);
-
-            const today =
-                new Date();
-
-            const days =
-                Math.max(
-                    1,
-                    (due - today) /
-                    (1000 * 60 * 60 * 24)
-                );
-
-            let taskDiff = 2.5;
-
-            if (
-                task.diff === "" ||
-                task.diff === null ||
-                isNaN(task.diff)
-            ) {
-                taskDiff = 2.5;
-            }
-            else {
-                taskDiff =
-                    Number(task.diff) / 5 + 0.5;
-            }
-
-            task.importance =
-                (
-                    taskHours /
-                    days
-                ) *
-                taskWeight *
-                taskComp *
-                taskDiff;
-            });
-    });
     await chrome.storage.local.set({
         subjects
     }); 
-    const tasks = [];
+const tasks = [];
 
-    subjects.forEach(subject => {
+subjects.forEach(subject => {
 
-        (subject.tasks || []).forEach(task => {
+    (subject.tasks || []).forEach((task, index) => {
 
-            tasks.push({
-                subject: subject.subjectName,
-                task: task
-            });
+        const taskObj = new Task(
+            task.taskName,
+            task.hours,
+            task.dueDate,
+            task.weighting,
+            task.comp,
+            task.diff
+        );
 
-        });
+        taskObj.calculateImportance(weights);
+        taskObj.calculateAveHours();
+
+        subject.tasks[index] = taskObj;
     });
 
-    function bubbleSort(tasks) {
+});
 
-        for (let i = 0; i < tasks.length - 1; i++) {
+subjects.forEach(subject => {
 
-            for (let j = 0; j < tasks.length - i - 1; j++) {
+    subject.tasks.forEach(task => {
 
-                if (
-                    tasks[j].task.importance <
-                    tasks[j + 1].task.importance
-                ) {
+        tasks.push({
+            subject: subject.subjectName,
+            task: task
+        });
 
-                    const temp = tasks[j];
+    });
 
-                    tasks[j] = tasks[j + 1];
-
-                    tasks[j + 1] = temp;
-                }
-            }
-        }
-
-        return tasks;
-    }
-
-    const sortedTasks =
-        bubbleSort([...tasks]);
+});
+    const sortedTasks = sortTasks(tasks);
 
     sortedTasks.forEach((item, index) => {
 
@@ -321,7 +274,7 @@ async function buildHomeworkUI() {
 
             priorityBox.style.fontWeight =
                 "bold";
-
+            console.log(task.priority)
             priorityBox.textContent =
                 task.priority;
 
@@ -423,7 +376,12 @@ async function buildHomeworkUI() {
             subjectRow
         );
     });
-
+    const hoursSection =
+        await buildHoursSection(sortedTasks);
+    
+    container.appendChild(
+        hoursSection
+    );
     const weightingSection =
         await buildWeightingSection();
 
@@ -450,3 +408,4 @@ document.addEventListener(
     "tasksUpdated",
     buildHomeworkUI
 );
+

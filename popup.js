@@ -117,34 +117,43 @@ async function showSubjects() {
         currentWindow: true
     });
 
-    try {
+    const url = new URL(tab.url);
 
-        await chrome.tabs.sendMessage(tab.id, {
-            action: "showHomework"
-        });
-
-    } catch (err) {
-
-        if (err.message.includes("Receiving end does not exist")) {
-
-            console.log("Content script missing. Injecting...");
-
-            await chrome.scripting.executeScript({
-                target: { tabId: tab.id },
-                files: [
-                    "classes.js",
-                    "weighting.js",
-                    "taskPopup.js",
-                    "content.js"
-                ]
-            });
+    if (url.pathname !== "/calendar/week") {
+        alert("Please open the SchoL eDiary page first.");
+        return;
+    }
+    else {
+        try {
 
             await chrome.tabs.sendMessage(tab.id, {
                 action: "showHomework"
             });
 
-        } else {
-            console.error(err);
+        } catch (err) {
+
+            if (err.message.includes("Receiving end does not exist")) {
+
+                console.log("Content script missing. Injecting...");
+
+                await chrome.scripting.executeScript({
+                    target: { tabId: tab.id },
+                    files: [
+                        "classes.js",
+                        "hoursSect.js",
+                        "weighting.js",
+                        "taskPopup.js",
+                        "content.js"
+                    ]
+                });
+
+                await chrome.tabs.sendMessage(tab.id, {
+                    action: "showHomework"
+                });
+
+            } else {
+                console.error(err);
+            }
         }
     }
 }
