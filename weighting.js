@@ -23,8 +23,8 @@ async function buildWeightingSection() {
 
     section.style.marginTop = "50px";
     section.style.padding = "20px";
-    section.style.background = "#222";
-    section.style.color = "white";
+    section.style.backgroundColor = "var(--layer1, var(--sbx-color-foreground-primary, #fff))";
+    section.style.color = "var(--text1) !important";
 
     section.innerHTML = `
         <h2>
@@ -127,14 +127,26 @@ function createSlider(title, id, currentWeight) {
             ">
 
         <div>
-            <span>Very Low</span>
-            <span>Low</span>
-            <span>Average</span>
-            <span>High</span>
-            <span>Very High</span>
+            <span id="left">Very Low</span>
+            <span id="middle">Low</span>
+            <span id="middle">Average</span>
+            <span id="middle">High</span>
+            <span id="right">Very High</span>
         </div>
 
         <br>
+        <style>
+        #left {
+            padding-right: 107px;
+        }
+        #middle {
+            padding-left: 100px;
+            padding-right: 100px;
+        }
+        #right {
+            padding-left: 107px;
+        }
+        </style>
     `;
 
     return wrapper;

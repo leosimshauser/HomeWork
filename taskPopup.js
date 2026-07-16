@@ -41,11 +41,8 @@ function openTaskPopup(
     popup.style.width =
         "700px";
 
-    popup.style.background =
-        "#1d1d1d";
-
-    popup.style.color =
-        "white";
+    popup.style.backgroundColor = "var(--background, var(--sbx-color-foreground-primary, #fff))";
+    popup.style.color = "var(--sbx-config-color-accent-text, var(--sbx-config-color-active, var(--accent-background)))";
 
     popup.style.padding =
         "25px";
@@ -57,21 +54,21 @@ function openTaskPopup(
                 "Create task"}
         </h2>
 
-        <label>Task name</label>
+        <label class="required">Task name</label>
         <input id="taskName"
             value="${existingTask?.taskName || ""}"
             style="width:100%">
         
         <br>
 
-        <label>Hours required</label>
+        <label class="required">Hours required</label>
         <input id="hours"
             type="number"
             value="${existingTask?.hours || ""}"
             style="width:100%">
         <br>
 
-        <label>Due date</label>
+        <label class="required">Due date</label>
         <input id="dueDate"
             type="date"
             value="${existingTask?.dueDate || ""}"
@@ -97,8 +94,9 @@ function openTaskPopup(
             type="number"
             value="${existingTask?.diff || 2.5}"
             style="width:100%">
-        <br>
-        <b id = "taskError"></b><br>
+        <h2 id="taskError" style="font-weight:600; font-size:18px;
+            color:var(--sbx-config-color-accent,var(--sbx-config-color-accent,var(--sbx-config-color-accent,var(--content-ui-foreground))));
+        "></h2><br>
         <button id="saveTask">
             Save
         </button>
@@ -169,6 +167,7 @@ function openTaskPopup(
                 document.getElementById(
                     "taskError"
                 ).textContent = error;
+
 
                 return;
             }

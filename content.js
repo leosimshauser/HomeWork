@@ -126,9 +126,6 @@ subjects.forEach(subject => {
 
         subjectCard.style.width =
             "150px";
-
-        subjectCard.style.minHeight =
-            ""
         subjectCard.style.padding =
             "16px 0px 25px 16px";
 
@@ -144,14 +141,20 @@ subjects.forEach(subject => {
             ${subject.teacher}
             <br><br>
             <div style="justify-content:end; position: absolute; bottom: 0; right: 0;">
-            <button class="createTask" style="
-            
+            <button class="createTask" id="tskButton"style="
+            background-color: transparent;
             margin: 50px 0px 0px 38.3px;
             ">
                 Create Task
             </button>
             </div>
+            <style>
+            #tskButton:hover {
+                background-color: var(--sbx-color-foreground-primary, var(--sbx-config-color-active, var(--content-ui-hover))) !important;
+            }
+            </style>
         `;
+
 
         //------------------------------------
         // Task column
@@ -164,7 +167,7 @@ subjects.forEach(subject => {
         taskColumn.style.display = "flex";
         taskColumn.style.flexDirection =
             "column";
-        taskColumn.style.gap = "10px";
+        taskColumn.style.gap = "2px";
 
 
 
@@ -184,7 +187,7 @@ subjects.forEach(subject => {
             const taskCard =
                 document.createElement("div");
             taskCard.className = "card small-12";
-            taskCard.style.backgroundColor = "var(--sbx-config-color-accent, var(--sbx-config-color-accent, var(--accent-foreground)))";
+            taskCard.style.backgroundColor = "var(--sbx-color-foreground-primary, #fff)";
             taskCard.style.color = "var(--sbx-config-color-accent-text, var(--sbx-config-color-active, var(--accent-background)))";
 
 
@@ -219,9 +222,9 @@ subjects.forEach(subject => {
                     <button class="icon-modify" style="justify-self:right; padding:8px; margin:0px 8px 0px 0px !important; min-height:2.5rem; font-size:0.875rem; font-weight:600; vertical-align:middle; color:#479AD1; width:102.58px; line-height:1.5rem;"> MODIFY</button>
                     <button class="icon-delete" style="justify-self:right; padding:8px; margin:0px !important; min-height:2.5rem; font-size:0.875rem; font-weight:600; vertical-align:middle; color:#479AD1; width:102.58px; line-height:1.5rem;"> DELETE</button>
                 </div>
-                        <p class="meta" style="
+                <p class="meta" style="
 
-                    color:#cccccc;
+                    color:var(--sbx-config-color-accent,var(--sbx-config-color-accent,var(--sbx-config-color-accent,var(--content-ui-foreground))));
 
                 ">
                     ${subject.subjectName}
