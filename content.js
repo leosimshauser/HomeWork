@@ -136,21 +136,23 @@ subjects.forEach(subject => {
             "relative";
 
         subjectCard.innerHTML = `
-            <a>${subject.subjectName}</a>
+            <a href="${subject.subjectLink}">${subject.subjectName}</a>
             <br>
             ${subject.teacher}
             <br><br>
-            <div style="justify-content:end; position: absolute; bottom: 0; right: 0;">
+            <div style="justify-content:end; position: absolute; bottom: 0; left: 0;">
             <button class="createTask" id="tskButton"style="
-            background-color: transparent;
-            margin: 50px 0px 0px 38.3px;
+            margin: 50px 0px 0px 0px;
             ">
                 Create Task
             </button>
             </div>
             <style>
+            #tskButton {
+                background-color: transparent !important;
+            }
             #tskButton:hover {
-                background-color: var(--sbx-color-foreground-primary, var(--sbx-config-color-active, var(--content-ui-hover))) !important;
+                background-color: #d1ebfe !important;
             }
             </style>
         `;
@@ -183,7 +185,8 @@ subjects.forEach(subject => {
                 document.createElement("div");
 
             taskRow.style.display = "flex";
-            taskRow.style.gap = "10px";
+            taskRow.style.minHeight = "145px";
+            taskRow.style.gap = "2px";
             const taskCard =
                 document.createElement("div");
             taskCard.className = "card small-12";
@@ -193,10 +196,6 @@ subjects.forEach(subject => {
 
             taskCard.style.padding =
                 "15px";
-
-            taskCard.style.borderLeft =
-                "5px solid " +
-                subject.colour;
 
             taskCard.setHTMLUnsafe(`
                 
@@ -256,9 +255,24 @@ subjects.forEach(subject => {
 
             priorityBox.style.width =
                 "80px";
-
-            priorityBox.style.background =
-                "#ef7648";
+            if (task.priority == 1) {
+                priorityBox.style.backgroundColor = "#f36f45"
+            }
+            else if (task.priority === 2) {
+                priorityBox.style.backgroundColor = "#e4b144"
+            }
+            else if (task.priority === 3) {
+                priorityBox.style.backgroundColor = "#c2d344"
+            }
+            else if (task.priority === 4) {
+                priorityBox.style.backgroundColor = "#7cc047"
+            }
+            else if (task.priority === 5) {
+                priorityBox.style.backgroundColor = "#4fa74f"
+            }
+            else {
+                priorityBox.style.backgroundColor = "#549a63"
+            }
 
             priorityBox.style.color =
                 "white";

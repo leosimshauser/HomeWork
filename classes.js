@@ -3,11 +3,12 @@ console.log("classes.js loaded");
 if (typeof Subject === "undefined") {
 
     class Subject {
-        constructor(subjectName, teacher, colour) {
+        constructor(subjectName, teacher, colour, subjectLink) {
             this.subjectName = subjectName;
             this.teacher = teacher;
             this.colour = colour;
             this.tasks = [];
+            this.subjectLink = subjectLink;
         }
 
         addTask(task) {

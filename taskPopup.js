@@ -75,28 +75,28 @@ function openTaskPopup(
             style="width:100%">
         <br>
 
-        <label>Weighting</label>
+        <label>Weighting (% out of 100)</label>
         <input id="weighting"
             type="number"
             value="${existingTask?.weighting || 0}"
             style="width:100%">
         <br>
 
-        <label>Completion</label>
+        <label>Completion (% out of 100)</label>
         <input id="comp"
             type="number"
             value="${existingTask?.comp || 0}"
             style="width:100%">
         <br>
 
-        <label>Difficulty</label>
+        <label>Difficulty (out of 5, 2.5 is average)</label>
         <input id="diff"
             type="number"
             value="${existingTask?.diff || 2.5}"
             style="width:100%">
         <h2 id="taskError" style="font-weight:600; font-size:18px;
             color:var(--sbx-config-color-accent,var(--sbx-config-color-accent,var(--sbx-config-color-accent,var(--content-ui-foreground))));
-        "></h2><br>
+        "></h2>
         <button id="saveTask">
             Save
         </button>
@@ -249,17 +249,23 @@ function validateTask(
     if (hours <= 0 || isNaN(hours)) {
         return "Hours must be greater than 0.";
     }
+    if (hours > 100) {
+        return "Hours must be 100 hours or less.";
+    }
 
     if (dueDate === "") {
         return "Please select a due date.";
     }
 
     if (new Date(dueDate) <= new Date()) {
-        return "Due date cannot be the current day or in the past.";
+        return "Due date must be in the future.";
+    }
+    if (new Date(dueDate) > (new Date()).setFullYear((new Date()).getFullYear() + 1)) {
+        return "Due date must be less than a year in the future.";
     }
 
     if (weighting < 0 || weighting > 100) {
-        return "Weighting must be between 0 and 100.";
+        return "Weighting must be between 0 and 100 inclusive.";
     }
 
     if (comp < 0 || comp >= 100) {
@@ -267,7 +273,7 @@ function validateTask(
     }
 
     if (diff < 0 || diff > 5) {
-        return "Difficulty must be between 1 and 5.";
+        return "Difficulty must be between 1 and 5 inclusive.";
     }
 
     return "";

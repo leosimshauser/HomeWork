@@ -77,6 +77,16 @@ async function buildWeightingSection() {
         )
     );
 
+    const alertRow =
+        document.createElement("div");
+    alertRow.id = "alertMessage";
+    alertRow.textContent = "";
+    alertRow.style.fontWeight = "600";
+    alertRow.style.fontSize = "18px";
+    alertRow.style.color = "var(--sbx-config-color-accent,var(--sbx-config-color-accent,var(--sbx-config-color-accent,var(--content-ui-foreground))))";
+
+    section.appendChild(alertRow)
+
     const buttonRow =
         document.createElement("div");
 
@@ -126,26 +136,34 @@ function createSlider(title, id, currentWeight) {
             width:100%;
             ">
 
-        <div>
-            <span id="left">Very Low</span>
-            <span id="middle">Low</span>
-            <span id="middle">Average</span>
-            <span id="middle">High</span>
-            <span id="right">Very High</span>
+        <div id="levels" style="width:100%;">
+            <span id="level">Very Low</span>
+            <span id="level" class="low">Low</span>
+            <span id="level">Average</span>
+            <span id="level" class="high">High</span>
+            <span id="level">Very High</span>
         </div>
 
         <br>
         <style>
-        #left {
-            padding-right: 107px;
+        #level {
+            width: 69px;
+            text-align:center;
         }
-        #middle {
-            padding-left: 100px;
-            padding-right: 100px;
+        .low {
+            text-align:left !important;
+            padding-left: 10px;
         }
-        #right {
-            padding-left: 107px;
+        .high {
+            text-align:right !important;
+            padding-right: 10px;
         }
+        #levels {
+            display: grid;
+            grid-auto-flow: column;
+            justify-content: space-between;
+        }
+
         </style>
     `;
 
@@ -173,6 +191,7 @@ async function saveWeights() {
     document.dispatchEvent(
         new Event("weightsChanged")
     );
+
 
 }
 

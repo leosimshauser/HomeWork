@@ -17,13 +17,10 @@ const stored =
 
     console.log("Stored subjects:", stored);
     console.log("Subject objects:", subjectObjects);
-    if (deleteButton=true){
-        document.getElementById("subjectBtn").remove()
-    }
-    else{
+
     document.getElementById("subjectBtn")
         .addEventListener("click", getSubjects);
-    };
+    
     document.getElementById("showSubjectsBtn")
         .addEventListener("click", showSubjects);
 });
@@ -53,8 +50,7 @@ async function getSubjects() {
     await chrome.storage.local.set({
         subjects: result
     });
-    var deleteButton = true
-    document.getElementById("subjectBtn").remove()
+
 }
 
 function scrapeSubjects() {
@@ -69,6 +65,7 @@ function scrapeSubjects() {
         if (!link) return;
 
         const subjectName = link.innerText.trim();
+        const subjectLink = link.getAttribute("href");
 
         if (
             subjectName.includes("HOUSE") ||
@@ -101,7 +98,8 @@ function scrapeSubjects() {
             subjectName,
             teacher,
             colour,
-            tasks: []
+            tasks: [],
+            subjectLink
         });
     });
 
@@ -109,7 +107,8 @@ function scrapeSubjects() {
         subjectName: "MISCELLANEOUS",
         teacher: "",
         colour: "rgb(200,200,200)",
-        tasks: []
+        tasks: [],
+        subjectLink: ""
     });
 
     return subjects;
