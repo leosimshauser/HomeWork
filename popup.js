@@ -101,6 +101,7 @@ function scrapeSubjects() {
             tasks: [],
             subjectLink
         });
+        console.log(subjects)
     });
 
     subjects.push({

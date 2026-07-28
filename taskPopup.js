@@ -239,11 +239,11 @@ function validateTask(
 ) {
     
     if (taskName.trim() === "") {
-        return "Task name cannot be empty.";
+        return "Please enter a task name.";
     }
 
     if (taskName.length >= 100) {
-        return "Task name cannot be 100 characters or more"
+        return "Task name must be less than 100 characters."
     }
     
     if (hours <= 0 || isNaN(hours)) {
@@ -272,8 +272,8 @@ function validateTask(
         return "Completion must be between 0 and 100, excluding 100.";
     }
 
-    if (diff < 0 || diff > 5) {
-        return "Difficulty must be between 1 and 5 inclusive.";
+    if (diff <= 0 || diff > 5) {
+        return "Difficulty must be between 1 and 5 including 5.";
     }
 
     return "";
