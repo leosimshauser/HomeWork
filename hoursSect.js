@@ -15,11 +15,57 @@ async function buildHoursSection(tasks) {
         document.createElement("div");
     section.id =
         "hours-section";
-    section.innerHTML =`
-        <h2>
-            AVERAGE HOURS STUDYING PER DAY
-        </h2>
-        <div style="width: 150px; min-height: 60px; background: rgb(239, 118, 72); color: white; display: flex; align-items: center; justify-content: center; font-size: 1rem; font-weight: bold;">${totAveHours.toFixed(1)}</div>
-        `
+    
+    const textDisp =
+        document.createElement("h2");
+    textDisp.textContent =
+        "AVERAGE HOURS STUDYING PER DAY";
+    
+    const hoursDiv =
+        document.createElement("div")
+    hoursDiv.id =
+        "hoursDisp";
+    hoursDiv.style.width =
+        "150px";
+    hoursDiv.style.minHeight =
+        "60px";
+    hoursDiv.style.color =
+        "white";
+    hoursDiv.style.display =
+        "flex";
+    hoursDiv.style.alignItems =
+        "center";
+    hoursDiv.style.justifyContent =
+        "center";
+    hoursDiv.style.fontSize =
+        "1rem";
+    hoursDiv.style.fontWeight =
+        "bold";
+    hoursDiv.textContent =
+        totAveHours.toFixed(1);
+    h = totAveHours.toFixed(1);
+    if (h<=0.5) {
+        hoursDiv.style.backgroundColor = "#549a63";
+    }
+    else if (h<=1 && h>0.5) {
+        hoursDiv.style.backgroundColor = "#4fa74f";
+    }
+    else if (h<=1.5 && h>1) {
+        hoursDiv.style.backgroundColor = "#7cc047";
+    }
+    else if (h<=2 && h>1.5) {
+        hoursDiv.style.backgroundColor = "#c2d344";
+    }
+    else if (h<=3 && h>2) {
+        hoursDiv.style.backgroundColor = "#e4b144";
+    }
+    else {
+        hoursDiv.style.backgroundColor = "#f36f45";
+    }    
+    section.appendChild(textDisp);
+    section.appendChild(hoursDiv);
+
+    
     return section;
+
 }

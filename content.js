@@ -255,25 +255,25 @@ subjects.forEach(subject => {
 
             priorityBox.style.width =
                 "80px";
-            if (task.priority == 1) {
-                priorityBox.style.backgroundColor = "#f36f45"
+            if (task.priority === 1) {
+                priorityBox.style.backgroundColor = "#f36f45";
             }
             else if (task.priority === 2) {
-                priorityBox.style.backgroundColor = "#e4b144"
+                priorityBox.style.backgroundColor = "#e4b144";
             }
             else if (task.priority === 3) {
-                priorityBox.style.backgroundColor = "#c2d344"
+                priorityBox.style.backgroundColor = "#c2d344";
             }
             else if (task.priority === 4) {
-                priorityBox.style.backgroundColor = "#7cc047"
+                priorityBox.style.backgroundColor = "#7cc047";
             }
             else if (task.priority === 5) {
-                priorityBox.style.backgroundColor = "#4fa74f"
+                priorityBox.style.backgroundColor = "#4fa74f";
             }
             else {
-                priorityBox.style.backgroundColor = "#549a63"
+                priorityBox.style.backgroundColor = "#549a63";
             }
-
+            
             priorityBox.style.color =
                 "white";
 
