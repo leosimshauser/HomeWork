@@ -176,6 +176,14 @@ subjects.forEach(subject => {
 
         (subject.tasks || []).forEach(
             (task, index) => {
+            
+            const date =
+                new Date(task.dueDate);
+            const formDate =
+                date.toLocaleDateString('en-US', {year: 'numeric', month: 'short', day: 'numeric'});
+            const currentDate =
+                (new Date()).toLocaleDateString('en-US', {year: 'numeric', month: 'short', day: 'numeric'});
+
             const menuId =
                 `poll-options-${subject.subjectName}-${index}`;
             function showButtons() {
@@ -247,9 +255,13 @@ subjects.forEach(subject => {
                 <p class="meta" style="
                     color:#9ad14b;
                 ">
-                    Due ${task.dueDate}
+                    Due ${formDate}
                 </p>
+                <h2 id="dueError" style="font-weight:600; font-size:18px;
+                    color:var(--sbx-config-color-accent,var(--sbx-config-color-accent,var(--sbx-config-color-accent,var(--content-ui-foreground))));
+                "></h2>
             `);
+
             const priorityBox =
                 document.createElement("div");
 
@@ -405,7 +417,60 @@ subjects.forEach(subject => {
     container.appendChild(
         weightingSection
     );
+    async function deleteTask(subject, index) {
+        const data =
+            await chrome.storage.local.get(
+                "subjects"
+            );
 
+        const stored =
+            data.subjects;
+
+        const s =
+            stored.find(
+                x =>
+                    x.subjectName ===
+                    subject.subjectName
+                );
+
+        s.tasks.splice(
+            index,1);
+
+        await chrome.storage.local.set({
+            subjects: stored
+            });
+
+    }
+    for (const subject of subjects) {
+
+    for (
+        let index = subject.tasks.length - 1;
+        index >= 0;
+        index--
+    ) {
+
+        const task = subject.tasks[index];
+
+        const date = new Date(task.dueDate);
+
+        if (date <= new Date()) {
+
+            if (
+                confirm(
+                    `${task.taskName} is overdue. Would you like to delete this task?\nThis will take effect once you reload the extension`
+                )
+            ) {
+                await deleteTask(subject, index);
+
+                // Keep the local array in sync too
+                subject.tasks.splice(index, 1);
+            }
+            else {
+                console.log("Cancelled");
+            }
+        }
+    }
+}
     content.after(container);
 }
 

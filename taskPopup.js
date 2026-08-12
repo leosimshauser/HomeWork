@@ -63,7 +63,7 @@ function openTaskPopup(
 
         <label class="required">Hours required</label>
         <input id="hours"
-            type="number"
+            type="number" min="0" max="100" step="0.5"
             value="${existingTask?.hours || ""}"
             style="width:100%">
         <br>
@@ -77,21 +77,21 @@ function openTaskPopup(
 
         <label>Weighting (% out of 100)</label>
         <input id="weighting"
-            type="number"
+            type="number" min="0" max="100" step="5"
             value="${existingTask?.weighting || 0}"
             style="width:100%">
         <br>
 
         <label>Completion (% out of 100)</label>
         <input id="comp"
-            type="number"
+            type="number" min="0" max="100" step="5"
             value="${existingTask?.comp || 0}"
             style="width:100%">
         <br>
 
         <label>Difficulty (out of 5, 2.5 is average)</label>
         <input id="diff"
-            type="number"
+            type="number" min="0" max="5" step="0.5"
             value="${existingTask?.diff || 2.5}"
             style="width:100%">
         <h2 id="taskError" style="font-weight:600; font-size:18px;
