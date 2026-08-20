@@ -41,9 +41,16 @@ async function buildHoursSection(tasks) {
         "1rem";
     hoursDiv.style.fontWeight =
         "bold";
-    hoursDiv.textContent =
-        totAveHours.toFixed(1);
     h = totAveHours.toFixed(1);
+    if (h < 4) {
+        hoursDiv.textContent =
+        h;
+    }
+    else {
+        hoursDiv.textContent =
+        `${h}!`;
+    }
+    
     if (h<=0.5) {
         hoursDiv.style.backgroundColor = "#549a63";
     }

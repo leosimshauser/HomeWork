@@ -140,7 +140,7 @@ subjects.forEach(subject => {
             <br>
             ${subject.teacher}
             <br><br>
-            <div style="justify-content:end; position: absolute; bottom: 0; left: 0;">
+            <div style="justify-content:end; position: absolute; bottom: 0; left: 20;">
             <button class="createTask" id="tskButton"style="
             margin: 50px 0px 0px 0px;
             ">
@@ -201,6 +201,34 @@ subjects.forEach(subject => {
             taskCard.style.backgroundColor = "var(--sbx-color-foreground-primary, #fff)";
             taskCard.style.color = "var(--sbx-config-color-accent-text, var(--sbx-config-color-active, var(--accent-background)))";
 
+            const todayDate = new Date();
+            
+            const dueD = new Date(task.dueDate);
+
+            const days = Math.ceil(Math.max(1, (dueD - todayDate) / (1000 * 60 * 60 * 24)));
+            console.log(`Days: ${days}`)
+
+            let dueColour;
+
+            if (days <= 2) {
+                dueColour = "#f36f45";
+            }
+            else if (days <= 3) {
+                dueColour = "#e4b144";
+            }
+            else if (days <= 5) {
+                dueColour = "#c2d344";
+            }
+            else if (days <= 7) {
+                dueColour = "#7cc047";
+            }
+            else if (days <= 9) {
+                dueColour = "#4fa74f";
+            }
+            else {
+                dueColour = "#549a63";
+            }
+
 
             taskCard.style.padding =
                 "15px";
@@ -253,7 +281,7 @@ subjects.forEach(subject => {
                 </p>
 
                 <p class="meta" style="
-                    color:#9ad14b;
+                    color:${dueColour};
                 ">
                     Due ${formDate}
                 </p>

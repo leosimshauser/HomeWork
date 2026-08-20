@@ -272,8 +272,8 @@ function validateTask(
         return "Completion must be between 0 and 100, excluding 100.";
     }
 
-    if (diff <= 0 || diff > 5) {
-        return "Difficulty must be between 1 and 5 including 5.";
+    if (diff.toFixed(1) <= 0 || diff.toFixed(1) > 5) {
+        return "Difficulty must be between 0 and 5 including 5.";
     }
 
     return "";

@@ -146,6 +146,9 @@ function createSlider(title, id, currentWeight) {
 
         <br>
         <style>
+        label {
+            font-size: 16px !important;
+        }
         #level {
             width: 69px;
             text-align:center;
